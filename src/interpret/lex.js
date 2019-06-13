@@ -1,6 +1,12 @@
-const debug = require("debug");
+let logTokens;
 
-const logTokens = debug("varium:lexer:tokens");
+try {
+  // eslint-disable-next-line
+  const debug = require("debug");
+  logTokens = debug("varium:lexer:tokens");
+} catch (e) {
+  logTokens = () => {};
+}
 
 const Input = (data) => {
   let i = 0;
